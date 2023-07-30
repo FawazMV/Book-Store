@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  navbar: boolean = false;
+  menuItems = [
+    { name: 'Home', route: '' },
+    { name: 'Register', route: 'auth/register' },
+    { name: 'Login', route: 'auth/login' },
+    { name: 'Cart', route: 'cart' },
+  ]
 
 }
