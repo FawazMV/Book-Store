@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ErrorComponent } from './Pages/Layout/error/error.component';
 import { LocalCurrencyPipe } from './Pipes/local-currency.pipe';
 import { CardShimmerComponent } from './Pages/Home/card-shimmer/card-shimmer.component';
+import { NavbarComponent } from './Pages/Layout/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CardShimmerComponent } from './Pages/Home/card-shimmer/card-shimmer.com
     ErrorComponent,
     HomeManageComponent,
     LocalCurrencyPipe,
-    CardShimmerComponent
+    CardShimmerComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
