@@ -1,24 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { BookService } from 'src/app/Services/book.service';
-
+import { Component, OnInit } from '@angular/core'
+import { Observable } from 'rxjs'
+import { Store } from '@ngrx/store'
+import { getBooks } from '../store/books.actions'
+import { BooksState } from '../store/books.reducers'
 @Component({
   selector: 'app-home-manage',
   templateUrl: './home-manage.component.html',
   styleUrls: ['./home-manage.component.css']
 })
 export class HomeManageComponent implements OnInit {
-  books = []
+  books$ = this.store.select('books')
 
-  constructor(private service: BookService) { }
+  constructor (private store: Store<BooksState>) {}
 
-  ngOnInit() {
+  ngOnInit (): void {
     this.getBooks()
   }
 
-  getBooks() {
-    this.service.getBooks().subscribe(response => {
-      this.books = response.books;
-      console.log(this.books)
-    })
+  getBooks () {
+    this.store.dispatch(getBooks())
   }
 }

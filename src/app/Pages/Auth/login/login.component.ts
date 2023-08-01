@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store'
+import { AppState } from 'src/app/Store/app.state';
+import { loginStart } from '../store/auth.actions';
+import { AuthState } from '../store/auth.state';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +11,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
+  constructor(private store: Store<AppState>) { }
+
+  movies$ = this.store.select('shared')
+
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(null, [
       Validators.required,
@@ -20,7 +29,7 @@ export class LoginComponent {
 
   showEmailErrors(): string {
     const emailForm = this.loginForm.get('email');
-    if (emailForm?.touched && !emailForm.valid) {
+    if (emailForm?.touched && emailForm.invalid) {
       if (emailForm.getError('required'))
         return 'Email Id is required';
       if (emailForm.getError('email'))
@@ -42,6 +51,7 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.invalid) return
-    console.log(this.loginForm.value)
+    const { email, password } = this.loginForm.value
+    this.store.dispatch(loginStart({ email, password }))
   }
 }

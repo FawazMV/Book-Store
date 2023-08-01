@@ -44,7 +44,7 @@ export class SignupComponent {
   }
   showConfirmPasswordErrors(): string {
     const passwordForm = this.signupForm.get('confirmPassword');
-    if (passwordForm?.touched && !passwordForm.valid) {
+    if (passwordForm?.touched) {
       if (passwordForm.getError('required'))
         return 'Please confirm your password';
       if (passwordForm.value !== this.signupForm.get('password')?.value)
