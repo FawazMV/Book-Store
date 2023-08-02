@@ -18,18 +18,23 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { BooksEffects } from './Pages/Home/store/books.effects'
 import { SummaryPipe } from './Pipes/summary.pipe'
 import { AuthEffects } from './Pages/Auth/store/auth.effects'
+import { ModalComponent } from './Pages/Layout/modal/modal.component'
+import { CartEffects } from './Pages/Cart/store/cart.effects'
+import { CartManageComponent } from './Pages/Cart/cart-manage/cart-manage.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     BookCardComponent,
+    CartManageComponent,
     ErrorComponent,
     HomeManageComponent,
     LocalCurrencyPipe,
     CardShimmerComponent,
     NavbarComponent,
     LoaderComponent,
-    SummaryPipe
+    SummaryPipe,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,7 @@ import { AuthEffects } from './Pages/Auth/store/auth.effects'
     FormsModule,
     HttpClientModule,
     StoreModule.forRoot(appReducer),
-    EffectsModule.forRoot([BooksEffects, AuthEffects]),
+    EffectsModule.forRoot([BooksEffects, AuthEffects, CartEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [],

@@ -46,17 +46,20 @@
     <div [class.hidden]="!navbar" class="md:hidden transition-transform mt-4">
       <!-- show the mobile menu on small screens (up to medium) -->
       <ul class="bg-gray-800 text-center rounded p-2 space-y-2">
-        <li>
+        <li (click)="navbar = false">
           <a routerLink="/" class="text-white hover:text-gray-200">HOME</a>
         </li>
-        <li *ngFor="let menu of (user | async) ? loginMenu : logoutMenu">
+        <li
+          (click)="navbar = false"
+          *ngFor="let menu of (user | async) ? loginMenu : logoutMenu"
+        >
           <a
             [routerLink]="menu.route"
             class="block text-white hover:text-gray-200"
             >{{ menu.name | uppercase }}</a
           >
         </li>
-        <li>
+        <li (click)="navbar = false">
           <button
             *ngIf="user | async"
             (click)="onLogout()"

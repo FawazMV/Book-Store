@@ -1,7 +1,7 @@
 import { BooksModle } from '../../Models/Books.model'
 
 export interface BooksState {
-  books: ReadonlyArray<BooksModle>
+  books: BooksModle[]
 }
 
-export const InitialState: ReadonlyArray<BooksModle> = []
+export const InitialState: Array<BooksModle> = []

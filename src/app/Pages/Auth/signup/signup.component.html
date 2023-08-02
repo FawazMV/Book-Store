@@ -42,8 +42,9 @@
       </p>
 
       <button
+        [disabled]="signupForm.invalid"
         type="submit"
-        class="flex items-center justify-center h-12 px-6 mt-8 text-sm font-semibold rounded bg-violet-400 text-gray-900"
+        class="flex items-center disabled:cursor-not-allowed disabled:bg-violet-300 justify-center h-12 px-6 mt-8 text-sm font-semibold rounded bg-violet-400 text-gray-900"
       >
         Sign Up
       </button>

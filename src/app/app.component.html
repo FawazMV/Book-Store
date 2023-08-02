@@ -1,4 +1,5 @@
 <app-navbar />
+<app-modal *ngIf="showModal | async" />
 <app-loader *ngIf="showLoading | async" />
 <div class="lg:py-32 py-28 fixed top-0 w-screen flex justify-center border-[0]">
   <div
