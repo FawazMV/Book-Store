@@ -5,16 +5,30 @@
       <div class="text-white font-bold text-xl">Book Store</div>
       <ul class="hidden md:flex space-x-4">
         <!-- hide the links on small screens (up to medium) -->
-        <li *ngFor="let menu of menuItems">
+        <li class="mt-1">
+          <a routerLink="/" class="text-white hover:text-gray-200">HOME</a>
+        </li>
+        <li
+          class="mt-1"
+          *ngFor="let menu of (user | async) ? loginMenu : logoutMenu"
+        >
           <a [routerLink]="menu.route" class="text-white hover:text-gray-200">{{
             menu.name | uppercase
           }}</a>
+        </li>
+        <li>
+          <button
+            (click)="onLogout()"
+            *ngIf="user | async"
+            class="text-white bg-red-500 px-3 py-1 rounded hover:text-gray-200"
+          >
+            Logout
+          </button>
         </li>
       </ul>
       <!-- Mobile menu button -->
       <button (click)="navbar = !navbar" class="md:hidden text-white">
         <svg
-          xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
           fill="currentColor"
@@ -31,13 +45,25 @@
     <!-- Mobile menu -->
     <div [class.hidden]="!navbar" class="md:hidden transition-transform mt-4">
       <!-- show the mobile menu on small screens (up to medium) -->
-      <ul class="bg-gray-800 rounded p-2 space-y-2">
-        <li *ngFor="let menu of menuItems">
+      <ul class="bg-gray-800 text-center rounded p-2 space-y-2">
+        <li>
+          <a routerLink="/" class="text-white hover:text-gray-200">HOME</a>
+        </li>
+        <li *ngFor="let menu of (user | async) ? loginMenu : logoutMenu">
           <a
             [routerLink]="menu.route"
             class="block text-white hover:text-gray-200"
-            >{{ menu.name }}</a
+            >{{ menu.name | uppercase }}</a
           >
+        </li>
+        <li>
+          <button
+            *ngIf="user | async"
+            (click)="onLogout()"
+            class="text-white w-full bg-red-500 px-3 py-1 rounded hover:text-gray-200"
+          >
+            Logout
+          </button>
         </li>
       </ul>
     </div>

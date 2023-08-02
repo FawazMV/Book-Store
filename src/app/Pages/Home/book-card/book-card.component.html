@@ -19,6 +19,8 @@
     >
       {{ book.price | localCurrency | currency : "INR" }}
     </a>
-    <h3 class="flex-1 py-2 text-lg font-semibold leading">{{ book.title }}</h3>
+    <h3 class="flex-1 py-2 text-lg font-semibold leading">
+      {{ book.title | summary }}
+    </h3>
   </div>
 </article>

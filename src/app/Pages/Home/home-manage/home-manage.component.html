@@ -6,7 +6,7 @@
         Qualisque erroribus usu at, duo te agam soluta mucius.
       </p>
     </div>
-    <!-- <app-card-shimmer *ngIf="books$" /> -->
+    <app-card-shimmer *ngIf="booksLength === 0" />
 
     <div class="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
       <book-card *ngFor="let book of books$ | async" [book]="book"></book-card>

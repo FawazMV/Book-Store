@@ -28,9 +28,9 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule,
-    StoreModule.forFeature(AUTH_STATE_NAME, AuthReducer),
-    EffectsModule.forFeature([AuthEffects])
+    FormsModule
+    // StoreModule.forFeature(AUTH_STATE_NAME, AuthReducer),
+    // EffectsModule.forFeature([AuthEffects])
   ]
 })
 export class AuthModule {}

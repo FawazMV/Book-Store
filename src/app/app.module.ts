@@ -16,6 +16,8 @@ import { appReducer } from './Store/app.state'
 import { LoaderComponent } from './Pages/Layout/loader/loader.component'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { BooksEffects } from './Pages/Home/store/books.effects'
+import { SummaryPipe } from './Pipes/summary.pipe'
+import { AuthEffects } from './Pages/Auth/store/auth.effects'
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { BooksEffects } from './Pages/Home/store/books.effects'
     LocalCurrencyPipe,
     CardShimmerComponent,
     NavbarComponent,
-    LoaderComponent
+    LoaderComponent,
+    SummaryPipe
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { BooksEffects } from './Pages/Home/store/books.effects'
     FormsModule,
     HttpClientModule,
     StoreModule.forRoot(appReducer),
-    EffectsModule.forRoot([BooksEffects]),
+    EffectsModule.forRoot([BooksEffects, AuthEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [],
