@@ -18,3 +18,8 @@ export const errorMessageSelector = createSelector(
   getSharedState,
   state => state.errorMessage
 )
+
+export const modalMessageSelector = createSelector(
+  getSharedState,
+  state => state.modalMessage
+)

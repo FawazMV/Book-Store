@@ -3,5 +3,5 @@ export interface CartModel {
   title: string
   price: string
   image: string
-  count?: number
+  count: number
 }

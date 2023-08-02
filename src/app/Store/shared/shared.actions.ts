@@ -9,3 +9,8 @@ export const setErrorMessage = createAction(
   '[shared state] set error message',
   props<{ message: string }>()
 )
+
+export const setModal = createAction(
+  '[shared state] set Modal',
+  props<{ message: string }>()
+)

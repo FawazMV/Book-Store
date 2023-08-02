@@ -9,12 +9,10 @@ export const getCartItems = createSelector(getCartState, state => {
   return state.items
 })
 
-// export const errorMessageSelector = createSelector(
-//   (state: AppState) => state.shared,
-//   (errorMessage: SharedState) => errorMessage.errorMessage
-// )
+export const getCartPrice = createSelector(getCartState, state => {
+  return state.totalPrice
+})
 
-// export const errorMessageSelector = createSelector(
-//   getSharedState,
-//   state => state.errorMessage
-// )
+export const getCartStates = createSelector(getCartState, state => {
+  return state
+})
