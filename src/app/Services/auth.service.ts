@@ -17,6 +17,12 @@ export class AuthService {
       password
     })
   }
+  signup (email: string, password: string): Observable<AuthResponseData> {
+    return this.http.post<AuthResponseData>(this.url + '/register', {
+      email,
+      password
+    })
+  }
 
   formatUser (data: AuthResponseData) {
     return new User(data.token, data?.email)
@@ -51,5 +57,6 @@ export class AuthService {
 
   setLocalStorageEmpty () {
     localStorage.removeItem('user')
+    localStorage.removeItem('cart')
   }
 }

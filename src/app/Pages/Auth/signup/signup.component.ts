@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { AppState } from 'src/app/Store/app.state'
 import { setLoadingSpinner } from 'src/app/Store/shared/shared.actions'
+import { signupStart } from '../store/auth.actions'
 
 @Component({
   selector: 'app-signup',
@@ -52,8 +53,8 @@ export class SignupComponent {
 
   onSubmit () {
     if (this.signupForm.invalid) return
-    const { email, password } = this.loginForm.value
+    const { email, password } = this.signupForm.value
     this.store.dispatch(setLoadingSpinner({ status: true }))
-    this.store.dispatch(loginStart({ email, password }))
+    this.store.dispatch(signupStart({ email, password }))
   }
 }
