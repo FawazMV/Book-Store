@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store'
-import { setErrorMessage, setLoadingSpinner } from './shared.actions'
+import { setErrorMessage, setLoadingSpinner, setModal } from './shared.actions'
 import { intilalState } from './shared.state'
 // const _sharedReducer = createReducer(
 //   intilalState,
@@ -22,5 +22,8 @@ export const SharedReducer = createReducer(
   }),
   on(setErrorMessage, (state, action) => {
     return { ...state, errorMessage: action.message }
+  }),
+  on(setModal, (state, action) => {
+    return { ...state, modalMessage: action.message }
   })
 )
