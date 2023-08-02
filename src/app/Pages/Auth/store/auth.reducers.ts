@@ -1,5 +1,4 @@
 import { createReducer, on } from '@ngrx/store'
-import { User } from '../../Models/user.model'
 import { loginSuccess, logOut } from './auth.actions'
 import { initialState } from './auth.state'
 
