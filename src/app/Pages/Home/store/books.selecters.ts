@@ -1,6 +1,6 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store'
+import { createSelector } from '@ngrx/store'
 import { BooksModle } from '../../Models/Books.model'
-import { BooksState } from './books.reducers'
+import { BooksState } from './books.state'
 // import { BooksState } from './books.state';
 // const getPostsState = createFeatureSelector<BooksState>('books');
 

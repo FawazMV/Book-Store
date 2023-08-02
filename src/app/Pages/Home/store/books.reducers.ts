@@ -1,12 +1,6 @@
 import { createReducer, on } from '@ngrx/store'
-import { BooksModle } from '../../Models/Books.model'
-import { getBooks, getBooksSuccess } from './books.actions'
-
-export interface BooksState {
-  books: ReadonlyArray<BooksModle>
-}
-
-const InitialState: ReadonlyArray<BooksModle> = []
+import { getBooksSuccess } from './books.actions'
+import { InitialState } from './books.state'
 
 export const BooksReducers = createReducer(
   InitialState,
