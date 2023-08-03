@@ -1,8 +1,9 @@
 import { Component } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { AppState } from 'src/app/Store/app.state'
+import { setLoadingSpinner } from 'src/app/Store/shared/shared.actions'
 import { CartModel } from '../../Models/Cart.model'
-import { cartCountChange, cartDelete } from '../store/cart.action'
+import { cartCheckout, cartCountChange, cartDelete } from '../store/cart.action'
 import { getCartItems, getCartPrice } from '../store/cart.selectors'
 @Component({
   selector: 'app-cart-manage',
@@ -28,5 +29,9 @@ export class CartManageComponent {
   removeItem (item: CartModel) {
     const res = confirm('Are you sure you want to remove this item?')
     if (res) this.store.dispatch(cartDelete({ item }))
+  }
+  checkout () {
+    this.store.dispatch(setLoadingSpinner({ status: true }))
+    this.store.dispatch(cartCheckout())
   }
 }

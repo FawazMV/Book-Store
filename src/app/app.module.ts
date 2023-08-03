@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { BookCardComponent } from './Pages/Home/book-card/book-card.component'
 import { HomeManageComponent } from './Pages/Home/home-manage/home-manage.component'
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { ErrorComponent } from './Pages/Layout/error/error.component'
 import { LocalCurrencyPipe } from './Pipes/local-currency.pipe'
 import { CardShimmerComponent } from './Pages/Home/card-shimmer/card-shimmer.component'
@@ -21,6 +21,7 @@ import { AuthEffects } from './Pages/Auth/store/auth.effects'
 import { ModalComponent } from './Pages/Layout/modal/modal.component'
 import { CartEffects } from './Pages/Cart/store/cart.effects'
 import { CartManageComponent } from './Pages/Cart/cart-manage/cart-manage.component'
+import { AuthInterceptor } from './interceptors/user.interceptor'
 
 @NgModule({
   declarations: [
@@ -46,7 +47,9 @@ import { CartManageComponent } from './Pages/Cart/cart-manage/cart-manage.compon
     EffectsModule.forRoot([BooksEffects, AuthEffects, CartEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -8,7 +8,7 @@ import { User } from '../Pages/Models/user.model'
   providedIn: 'root'
 })
 export class AuthService {
-  private url = 'https://let-s-play-user-service.onrender.com'
+  private url = 'https://book-store-service-5zpd.onrender.com'
   constructor (private http: HttpClient) {}
 
   login (email: string, password: string): Observable<AuthResponseData> {
@@ -29,12 +29,13 @@ export class AuthService {
   }
 
   getErrorMessage (message: string) {
-    console.log(message)
     switch (message) {
-      case 'Invalid credentials..':
-        return 'Invalid credentials'
+      case 'Email Id not found':
+        return 'Email Id not found'
       case 'Invalid credentials.':
         return 'Invalid credentials'
+      case 'Duplicate found':
+        return 'Email Id already registered'
       default:
         return 'Unknow error occurred. Please try again'
     }
@@ -46,7 +47,6 @@ export class AuthService {
 
   getUserLocalStorage (): User | null {
     const item = localStorage.getItem('user')
-    console.log(item)
     if (item) {
       const data = JSON.parse(item)
       const user = new User(data.token, data?.email)

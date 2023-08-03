@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { CartState } from '../Pages/Cart/store/cart.state'
 
@@ -5,7 +6,8 @@ import { CartState } from '../Pages/Cart/store/cart.state'
   providedIn: 'root'
 })
 export class CartService {
-  constructor () {}
+  private url = 'http://localhost:7777'
+  constructor (private http: HttpClient) {}
 
   setCartinLocal (itmes: CartState) {
     localStorage.setItem('cart', JSON.stringify(itmes))
@@ -14,5 +16,9 @@ export class CartService {
   getCartinLocal () {
     const res = localStorage.getItem('cart')
     if (res) return JSON.parse(res)
+  }
+
+  checkout () {
+    return this.http.get(this.url + '/checkout')
   }
 }

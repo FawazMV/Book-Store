@@ -25,3 +25,4 @@ export const localCartSuccess = createAction(
   '[cart state] take localstorage cart success',
   props<CartState>()
 )
+export const cartCheckout = createAction('[cart state] cart checkout')

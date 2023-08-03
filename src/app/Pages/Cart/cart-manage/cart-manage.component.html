@@ -80,6 +80,7 @@
       Total: {{ totalPrice$ | async | localCurrency | currency : "INR" }}
     </p>
     <button
+      (click)="checkout()"
       class="mt-4 px-6 py-3 text-lg font-semibold bg-green-600 text-white rounded-full hover:bg-green-700"
     >
       Checkout
