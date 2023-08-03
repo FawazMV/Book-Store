@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { Actions, createEffect, ofType } from '@ngrx/effects'
 import { catchError, exhaustMap, map, mergeMap, of, tap } from 'rxjs'
 import { AuthService } from 'src/app/Services/auth.service'
-import { AuthResponseData } from '../../Models/AuthResponseData'
+import { AuthResponseData } from '../../../Models/AuthResponseData'
 import {
   autoLogin,
   loginStart,
@@ -17,7 +17,7 @@ import {
   setLoadingSpinner
 } from 'src/app/Store/shared/shared.actions'
 import { Router } from '@angular/router'
-import { User } from '../../Models/user.model'
+import { User } from '../../../Models/user.model'
 
 @Injectable()
 export class AuthEffects {

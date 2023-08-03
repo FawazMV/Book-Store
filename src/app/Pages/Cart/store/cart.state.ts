@@ -1,4 +1,4 @@
-import { CartModel } from '../../Models/Cart.model'
+import { CartModel } from '../../../Models/Cart.model'
 
 export interface CartState {
   items: CartModel[]

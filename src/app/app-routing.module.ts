@@ -5,6 +5,7 @@ import { LogoutAuthGuard } from './Guards/logout.guard'
 import { CartManageComponent } from './Pages/Cart/cart-manage/cart-manage.component'
 import { HomeManageComponent } from './Pages/Home/home-manage/home-manage.component'
 import { ErrorComponent } from './Pages/Layout/error/error.component'
+import { SingleComponent } from './Pages/Single/single/single.component'
 
 const routes: Routes = [
   { path: '', component: HomeManageComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
     component: CartManageComponent,
     canActivate: [LogoutAuthGuard]
   },
+  { path: 'book/:id', component: SingleComponent },
   { path: '**', component: ErrorComponent }
 ]
 

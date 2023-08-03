@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable, of } from 'rxjs'
-import { AuthResponseData } from '../Pages/Models/AuthResponseData'
-import { User } from '../Pages/Models/user.model'
+import { AuthResponseData } from '../Models/AuthResponseData'
+import { User } from '../Models/user.model'
 
 @Injectable({
   providedIn: 'root'

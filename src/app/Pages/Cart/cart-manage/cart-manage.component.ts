@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { AppState } from 'src/app/Store/app.state'
 import { setLoadingSpinner } from 'src/app/Store/shared/shared.actions'
-import { CartModel } from '../../Models/Cart.model'
+import { CartModel } from '../../../Models/Cart.model'
 import { cartCheckout, cartCountChange, cartDelete } from '../store/cart.action'
 import { getCartItems, getCartPrice } from '../store/cart.selectors'
 @Component({

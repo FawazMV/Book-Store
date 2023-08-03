@@ -1,11 +1,11 @@
 <app-navbar />
 <app-modal *ngIf="showModal | async" />
 <app-loader *ngIf="showLoading | async" />
-<div class="lg:py-32 py-28 fixed top-0 w-screen flex justify-center border-[0]">
-  <div
-    *ngIf="errorMessage$ | async as error"
-    class="text-red-600 px-10 py-1 rounded bg-red-300 flex"
-  >
+<div
+  *ngIf="errorMessage$ | async as error"
+  class="lg:py-32 py-28 fixed top-0 w-screen z-10 flex justify-center border-[0]"
+>
+  <div class="text-red-600 px-10 py-1 rounded bg-red-300 flex">
     <span> {{ error }} </span>
     <span class="h-5 w-5 mt-1 ml-5 cursor-pointer" (click)="removeError()">
       <svg>

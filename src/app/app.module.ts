@@ -22,6 +22,7 @@ import { ModalComponent } from './Pages/Layout/modal/modal.component'
 import { CartEffects } from './Pages/Cart/store/cart.effects'
 import { CartManageComponent } from './Pages/Cart/cart-manage/cart-manage.component'
 import { AuthInterceptor } from './interceptors/user.interceptor'
+import { SingleComponent } from './Pages/Single/single/single.component'
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AuthInterceptor } from './interceptors/user.interceptor'
     NavbarComponent,
     LoaderComponent,
     SummaryPipe,
-    ModalComponent
+    ModalComponent,
+    SingleComponent
   ],
   imports: [
     BrowserModule,

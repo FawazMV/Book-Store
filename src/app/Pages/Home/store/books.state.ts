@@ -1,4 +1,4 @@
-import { BooksModle } from '../../Models/Books.model'
+import { BooksModle } from '../../../Models/Books.model'
 
 export interface BooksState {
   books: BooksModle[]

@@ -10,12 +10,12 @@ import { Observable } from 'rxjs'
 import { switchMap, take } from 'rxjs/operators'
 import { AppState } from '../Store/app.state'
 import { getToken } from '../Pages/Auth/store/auth.selectors'
-import { User } from '../Pages/Models/user.model'
+import { Router } from '@angular/router'
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor (private store: Store<AppState>) {}
-
+  constructor (private store: Store<AppState>, private router: Router) {}
+  path = this.router.url
   intercept (
     req: HttpRequest<any>,
     next: HttpHandler
@@ -23,7 +23,9 @@ export class AuthInterceptor implements HttpInterceptor {
     return this.store.select(getToken).pipe(
       take(1),
       switchMap(token => {
-        if (token) {
+        console.log(this.path)
+
+        if (token && this.path != '/') {
           req = req.clone({
             setHeaders: {
               Authorization: `Bearer ${token}`
