@@ -1,4 +1,18 @@
-# BookStore
+# Book Store
+
+This is an application that provides users with a collection of books and allows them to add their favorite ones to the cart. Users can also manage the cart.
+
+## Frontend
+
+The project is deployed at  https://fawazmv.github.io/Book-Store/
+
+
+## API Endpoint
+
+The API endpoint for this project is at https://api.itbook.store/1.0/new.
+
+![image](https://github.com/FawazMV/Book-Store/blob/master/src/assets/bookstore.png)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
 
